@@ -68,6 +68,8 @@ and writes resources\economy-mod-install.json to remember what it did.
 Everything is plain text in the "mod" folder if you want to read it first.
 
 
+IF THE INSTALLER STILL CAN’T FIND THE GAME: move the whole “War Footing Economy Mod v1.0.0” folder into your War Footing folder (Steam > right-click War Footing > Manage > Browse local files), so it sits next to “War Footing.exe”. Then double-click “Install Economy Mod.bat” inside it again: it always uses the game folder it is in. Leave the folder there - “Uninstall Economy Mod.bat” works from there too.
+
 UNINSTALL
 ---------
 Double-click "Uninstall Economy Mod.bat". It puts the original game file
