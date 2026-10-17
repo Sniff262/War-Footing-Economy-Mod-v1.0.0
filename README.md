@@ -4,7 +4,7 @@
 
 > Not affiliated with or endorsed by the game's developer. Use at your own risk.
 
-**[⬇ Download WarFooting-EconomyMod-v1.0.0.zip](https://github.com/Sniff262/War-Footing-Economy-Mod-v1.0.0/raw/main/WarFooting-EconomyMod-v1.0.0.zip)** (81 KB) · [Install](#install) · [Uninstall](#uninstall) · [FAQ](#saves-steam-cloud-and-achievements)
+**[⬇ Download WarFooting-EconomyMod-v1.0.0.zip](https://github.com/Sniff262/War-Footing-Economy-Mod-v1.0.0/raw/main/WarFooting-EconomyMod-v1.0.0.zip)** (81 KB) · [Screenshots](#screenshots) · [Install](#install) · [Uninstall](#uninstall) · [FAQ](#saves-steam-cloud-and-achievements)
 
 ---
 
@@ -33,6 +33,24 @@ About **10 cents of extra weekly income per dollar** spent, more with high stabi
 - **Learning curve:** each design gets cheaper and faster to build the more you make, down to 40% of its starting cost on a fully mature line. Running programs re-price their remaining payments as the line matures.
 
 The in-game **Field Manual (? Help)** explains every rule in detail.
+
+## Screenshots
+
+**Arms Exports tab:** 20 client states with their alignment, trade ties, weekly import budget, price ceiling and shopping list.
+
+![Arms Exports tab](screenshots/arms-exports-tab.png)
+
+**Export contract preview:** price, royalty, reinvestment, production cost and profit before you sign.
+
+![Export contract preview](screenshots/export-contract-preview.png)
+
+**Lobbying:** the fifth budget slider, showing what each week's lobbying adds to your base income for good.
+
+![Lobbying slider](screenshots/lobbying-slider.png)
+
+**Weekly briefing:** export sales, reinvestment, profit and reputation in the turn summary.
+
+![Weekly briefing](screenshots/weekly-briefing.png)
 
 ## Install
 
@@ -122,6 +140,10 @@ npx @electron/asar pack app_src app.asar --unpack-dir "node_modules/steamworks.j
 ```
 
 The `--unpack-dir` part keeps Steam's files outside the archive. You can delete `app_src` afterwards. `Uninstall Economy Mod.bat` still restores the original.
+
+## Changelog
+
+- **v1.0.0**: first public release.
 
 ## Changelog
 
