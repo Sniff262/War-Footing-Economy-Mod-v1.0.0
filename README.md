@@ -1,10 +1,10 @@
-# War Footing — Economy Mod v{MOD_VERSION}
+# War Footing — Economy Mod v1.0.0
 
-**Unofficial fan mod for War Footing {GAME_VERSION}** (Windows / Steam). Build a defense economy that snowballs the realistic way: build cheaply at scale, export to client states, reinvest, and lobby parliament for a bigger budget.
+**Unofficial fan mod for War Footing 1.0.1** (Windows / Steam). Build a defense economy that snowballs the realistic way: build cheaply at scale, export to client states, reinvest, and lobby parliament for a bigger budget.
 
 > Not affiliated with or endorsed by the game's developer. Use at your own risk.
 
-**[⬇ Download {ZIP_NAME}]({ZIP_NAME})** ({ZIP_KB} KB) · [Install](#install) · [Uninstall](#uninstall) · [FAQ](#saves-steam-cloud-and-achievements)
+**[⬇ Download WarFooting-EconomyMod-v1.0.0.zip](https://github.com/Sniff262/War-Footing-Economy-Mod-v1.0.0/raw/main/WarFooting-EconomyMod-v1.0.0.zip)** (81 KB) · [Install](#install) · [Uninstall](#uninstall) · [FAQ](#saves-steam-cloud-and-achievements)
 
 ---
 
@@ -37,12 +37,12 @@ The in-game **Field Manual (? Help)** explains every rule in detail.
 ## Install
 
 1. Close War Footing.
-2. Download **[{ZIP_NAME}]({ZIP_NAME})** and extract it anywhere (right-click → *Extract All*).
+2. Download **[WarFooting-EconomyMod-v1.0.0.zip](https://github.com/Sniff262/War-Footing-Economy-Mod-v1.0.0/raw/main/WarFooting-EconomyMod-v1.0.0.zip)** and extract it anywhere (right-click → *Extract All*).
 3. Double-click **`Install Economy Mod.bat`**.
 
 The installer finds the game through Steam. If it can't, it asks for the game folder: in Steam, right-click War Footing → *Manage* → *Browse local files*, then drag `War Footing.exe` into the installer window and press Enter.
 
-> **If the installer still can't find the game:** move the whole `War Footing Economy Mod v{MOD_VERSION}` folder into your War Footing folder, so it sits next to `War Footing.exe`, and run `Install Economy Mod.bat` from there. It always uses the game folder it's in. Leave the folder there; uninstalling works from there too.
+> **If the installer still can't find the game:** move the whole `War Footing Economy Mod v1.0.0` folder into your War Footing folder, so it sits next to `War Footing.exe`, and run `Install Economy Mod.bat` from there. It always uses the game folder it's in. Leave the folder there; uninstalling works from there too.
 
 Nothing else needs to be installed, and it needs about 130 MB of free disk space while it works. If Windows warns that the file came from the internet, choose *Run* (or *More info* → *Run anyway*).
 
@@ -60,10 +60,10 @@ Every script is plain text in the `mod` folder.
 **Check your download** (optional) by running this in PowerShell and comparing:
 
 ```powershell
-Get-FileHash .\{ZIP_NAME}
+Get-FileHash .\WarFooting-EconomyMod-v1.0.0.zip
 ```
 
-`SHA-256: {SHA256}`
+`SHA-256: 850f8157b427e0015330e9495354d645f932e2d0b56102a95dfef51e2ecdd8d6`
 
 ## Uninstall
 
@@ -103,27 +103,26 @@ The `.bat` files are Windows-only, but the installer itself runs anywhere with *
 1. Close the game (on the Deck, switch to Desktop Mode).
 2. Download the *Linux x64* `.tar.xz` from [nodejs.org](https://nodejs.org) and extract it into your home folder (no root needed).
 3. Open a terminal (Konsole) in the extracted mod folder, the one that contains `mod` and `README.txt`.
-4. Run (adjust the Node folder name):
+4. Run:
 
 ```bash
-~/node-v18.20.4-linux-x64/bin/node mod/installer.js install "$HOME/.local/share/Steam/steamapps/common/War Footing"
+~/node-v*-linux-x64/bin/node mod/installer.js install "$HOME/.local/share/Steam/steamapps/common/War Footing"
 ```
 
-On an SD card the game is in `/run/media/<card>/steamapps/common/War Footing`. Use `uninstall` instead of `install` to remove the mod.
+If the game is on an SD card, replace the quoted path with the folder that Steam → *Manage* → *Browse local files* opens. Use `uninstall` instead of `install` to remove the mod.
 
 ## Tuning
 
-All of the mod's numbers live in the game's `data/game_constants.json` (sections `production_volume`, `production_learning`, `production_programs`, `arms_exports` and `budget_system.lobbying`), each with a description. You can edit them in the installed game archive with the standard [`asar`](https://github.com/electron/asar) tool. When you repack, keep Steam's files outside the archive:
+All of the mod's numbers live in the game's `data/game_constants.json` (sections `production_volume`, `production_learning`, `production_programs`, `arms_exports` and `budget_system.lobbying`), each with a description. You can edit them in the installed game archive with the standard [`asar`](https://github.com/electron/asar) tool (needs [Node.js](https://nodejs.org)). Close the game, open the game's `resources` folder (Steam → *Manage* → *Browse local files* → `resources`), right-click inside it → *Open in Terminal*, and run:
 
-```bash
-asar pack <folder> app.asar --unpack-dir node_modules/steamworks.js
+```powershell
+npx @electron/asar extract app.asar app_src
+notepad app_src\MoD_Strategy_Game\data\game_constants.json
+npx @electron/asar pack app_src app.asar --unpack-dir "node_modules/steamworks.js"
 ```
 
-`Uninstall Economy Mod.bat` still restores the original afterwards.
+The `--unpack-dir` part keeps Steam's files outside the archive. You can delete `app_src` afterwards. `Uninstall Economy Mod.bat` still restores the original.
 
 ## Changelog
 
-- **v{MOD_VERSION}**: first public release.
-
----------
-v1.0.0  First public release.
+- **v1.0.0**: first public release.
